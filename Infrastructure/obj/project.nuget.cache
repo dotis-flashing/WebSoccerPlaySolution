@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cg/r/gUmgOBel6kla1Ayo7nbiy5rE8ZQrhLPUb3QAFQ4373BswAyxvbx1S6DZ/6lkK9B3puTFYRTsjA4YEs11g==",
+  "dgSpecHash": "o5Je5M0ICFV/9drVKKh9AVYR2nVtTiWg+oBcEsjOEupMUyMJx8C9LxLS6DO8gWgMiRMKqWdgZsAu84HARMJmOA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\xuand\\Documents\\Mon\\C#\\WebSoccerPlaySolution\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\xuand\\Documents\\Mon\\WebSoccerPlaySolution\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xuand\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\xuand\\.nuget\\packages\\azure.core\\1.36.0\\azure.core.1.36.0.nupkg.sha512",

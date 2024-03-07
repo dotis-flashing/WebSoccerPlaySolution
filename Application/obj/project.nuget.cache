@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FLQxmONxz+p2/qbOzZ+xjoKtjLvJsDzxBs1SCz02aL30GE0TjxAcdY+Mn17JR1F7xQUUlZycfMY9BEQKHRzPJA==",
+  "dgSpecHash": "k1FUdHdS02QXOqf69+WOWuStb7rWCRzf8UooCwi9/dHHTaQNlMEJQyPKxkL8x4Fkyi+IgzUn24XSqyYgbC0Nag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\xuand\\Documents\\Mon\\C#\\WebSoccerPlaySolution\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\xuand\\Documents\\Mon\\WebSoccerPlaySolution\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xuand\\.nuget\\packages\\azure.core\\1.36.0\\azure.core.1.36.0.nupkg.sha512",
     "C:\\Users\\xuand\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mFuW2dwlmE8IJ1stTfJllljOhH4wJfc5oEvDGxsjOemmdHSUvMozzeKqxjgXXidcYPveG08vs9vWjvf+VycKFQ==",
+  "dgSpecHash": "ob1FcXIP4+5LyjoqPH/DjtfOyJRlnKNw4DWRcIgfFiVaPuXNXOwhaPK5t+Nr+tDiPQRINWSpvRrpuv4fbe54ng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\xuand\\Documents\\Mon\\C#\\WebSoccerPlaySolution\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\xuand\\Documents\\Mon\\WebSoccerPlaySolution\\Domain\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
