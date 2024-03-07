@@ -1,0 +1,3467 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "WebRecruitment.WebApi",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Accounts/GetAccounts": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Accounts/GetAccount/{id}": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        }
+      }
+    },
+    "/api/Accounts/GetCustomerByAccountId": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseAccountCustomer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Accounts/GetOwnerByAccountId": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseAccountOwner"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Accounts/GetAdminByAccountId": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseAccountAdmin"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Accounts/UpdateProfileOfCustomer": {
+      "put": {
+        "tags": [
+          "Accounts"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestUpdateProfile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseAccountCustomer"
+            }
+          }
+        }
+      }
+    },
+    "/api/Accounts/PutAccount/{id}": {
+      "put": {
+        "tags": [
+          "Accounts"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Accounts/PostAccount": {
+      "post": {
+        "tags": [
+          "Accounts"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        }
+      }
+    },
+    "/api/Accounts/DeleteAccount/{id}": {
+      "delete": {
+        "tags": [
+          "Accounts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Authentication/Login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestLogin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseLogin"
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/RefreshToken": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "refreshToken",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseLogin"
+            }
+          }
+        }
+      }
+    },
+    "/api/Authentication/RevokeRefreshToken": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "refreshToken",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "username",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Booking/CreateBooking_v3": {
+      "post": {
+        "tags": [
+          "Booking"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestBooking_v3"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseBooking"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetAllBookings": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseBooking"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetAllBookingByCustomerId": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseManageBooking"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetAllBookingByOwnerId": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseAllLandBooking"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetAllBookingByOwnerId_v2": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseAllLandBooking_v2"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetBookingById": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponeBooking_v3"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetAllBookingByLandId": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseBooking_v2"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/CancelBooking": {
+      "delete": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/ChangeStatusBooking": {
+      "delete": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetSummryInYear": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "year",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "ownerId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BookingSummary"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetSummary": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ownerId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "float",
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetNumBooking": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ownerId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetSummryInYearByLand": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "year",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "landId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BookingSummary"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetSummaryByLand": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "landId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "float",
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "/api/Booking/GetNumBookingByLand": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "landId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "/api/FeedBack/CreateFeedBack": {
+      "post": {
+        "tags": [
+          "FeedBack"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestFeedback"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseFeedback"
+            }
+          }
+        }
+      }
+    },
+    "/api/FeedBack/GetFeedBackByLandId": {
+      "get": {
+        "tags": [
+          "FeedBack"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseFeedback"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/File/Add": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "LandId",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "formData",
+            "name": "ImageLogo",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseFile"
+            }
+          }
+        }
+      }
+    },
+    "/api/File/GetNameFile": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Land/CreateLand": {
+      "post": {
+        "tags": [
+          "Land"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestLand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseLand_2"
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/UpdateLand": {
+      "put": {
+        "tags": [
+          "Land"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestUpdateLand"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseLand_2"
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/GetAllLand": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseLand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/GetTop6Land": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseLand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/GetLandById": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "landId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseLand"
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/GetLandByOwner": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "OwnerId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseLand"
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/GetLandByOwnerAndNameLand": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "OwnerId",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "nameLand",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseLand"
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/SearchLand": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "landName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseLand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/SearchLandByLocation": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "location",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseLand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/SearchLandByName": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "landName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseLand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/Filter": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "rate",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "min",
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "in": "query",
+            "name": "max",
+            "type": "number",
+            "format": "float"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseLand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Land/GetTop3IncomeLandOfOwner": {
+      "get": {
+        "tags": [
+          "Land"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponseLand"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Pitch/CreatePitch": {
+      "post": {
+        "tags": [
+          "Pitch"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestPitch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponsePitch"
+            }
+          }
+        }
+      }
+    },
+    "/api/Pitch/GetPitchsByOwnerId": {
+      "get": {
+        "tags": [
+          "Pitch"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "Id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponsePitch"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Pitch/GetPitchSchedule": {
+      "get": {
+        "tags": [
+          "Pitch"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "landId",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponsePitchV2"
+            }
+          }
+        }
+      }
+    },
+    "/api/Pitch/GetPitchSchedule_v2": {
+      "get": {
+        "tags": [
+          "Pitch"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "landId",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "date",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "query",
+            "name": "pitchName",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponsePitchV2"
+            }
+          }
+        }
+      }
+    },
+    "/api/Pitch/GetPitchByOwnerAndNameLand": {
+      "get": {
+        "tags": [
+          "Pitch"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ownerId",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "landId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponsePitchV2"
+            }
+          }
+        }
+      }
+    },
+    "/api/Pitch/GetNumPitch": {
+      "get": {
+        "tags": [
+          "Pitch"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "ownerId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Pitch/GetNumPitchByLand": {
+      "get": {
+        "tags": [
+          "Pitch"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "landId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "format": "int32",
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Pitch/InActivePitch": {
+      "put": {
+        "tags": [
+          "Pitch"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponsePitch"
+            }
+          }
+        }
+      }
+    },
+    "/api/Price/CreatePrice": {
+      "post": {
+        "tags": [
+          "Price"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestPrice"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponsePrice"
+            }
+          }
+        }
+      }
+    },
+    "/api/Price/Calculator": {
+      "post": {
+        "tags": [
+          "Price"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestCaculator"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "float",
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "/api/Price/DeletePrice": {
+      "delete": {
+        "tags": [
+          "Price"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/Price/GetPricesByLandId": {
+      "get": {
+        "tags": [
+          "Price"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "landId",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ResponsePrice"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Register/PostAdmin": {
+      "post": {
+        "tags": [
+          "Register"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestAccountAdmin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseAccountAdmin"
+            }
+          }
+        }
+      }
+    },
+    "/api/Register/PostOwner": {
+      "post": {
+        "tags": [
+          "Register"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestAccountOwner"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseAccountOwner"
+            }
+          }
+        }
+      }
+    },
+    "/api/Register/PostCustomer": {
+      "post": {
+        "tags": [
+          "Register"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestAccountCustomer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseAccountCustomer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Account": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "admins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Admin"
+          }
+        },
+        "customers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Customer"
+          }
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Owner"
+          }
+        }
+      }
+    },
+    "Admin": {
+      "type": "object",
+      "properties": {
+        "adminId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "accountId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/definitions/Account"
+        }
+      }
+    },
+    "Booking": {
+      "type": "object",
+      "properties": {
+        "bookingId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "totalPrice": {
+          "format": "float",
+          "type": "number"
+        },
+        "dateBooking": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customer": {
+          "$ref": "#/definitions/Customer"
+        },
+        "land": {
+          "$ref": "#/definitions/Land"
+        },
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Schedule"
+          }
+        }
+      }
+    },
+    "BookingSummary": {
+      "type": "object",
+      "properties": {
+        "bookingMonth": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalPriceSum": {
+          "format": "float",
+          "type": "number"
+        }
+      }
+    },
+    "Customer": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "accountId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/definitions/Account"
+        },
+        "bookings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Booking"
+          }
+        },
+        "feedbacks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Feedback"
+          }
+        }
+      }
+    },
+    "Feedback": {
+      "type": "object",
+      "properties": {
+        "feedbackId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "rate": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customer": {
+          "$ref": "#/definitions/Customer"
+        },
+        "land": {
+          "$ref": "#/definitions/Land"
+        }
+      }
+    },
+    "Land": {
+      "type": "object",
+      "properties": {
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "nameLand": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "policy": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "distance": {
+          "type": "string"
+        },
+        "totalPitch": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/Owner"
+        },
+        "feedbacks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Feedback"
+          }
+        },
+        "pitches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pitch"
+          }
+        },
+        "prices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Price"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PitchImage"
+          }
+        },
+        "bookings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Booking"
+          }
+        }
+      }
+    },
+    "Owner": {
+      "type": "object",
+      "properties": {
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "accountId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/definitions/Account"
+        },
+        "lands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Land"
+          }
+        },
+        "pitches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pitch"
+          }
+        }
+      }
+    },
+    "Pitch": {
+      "type": "object",
+      "properties": {
+        "pitchId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "land": {
+          "$ref": "#/definitions/Land"
+        },
+        "owner": {
+          "$ref": "#/definitions/Owner"
+        },
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Schedule"
+          }
+        }
+      }
+    },
+    "PitchImage": {
+      "type": "object",
+      "properties": {
+        "imageId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "land": {
+          "$ref": "#/definitions/Land"
+        }
+      }
+    },
+    "Price": {
+      "type": "object",
+      "properties": {
+        "priceId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "starTime": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "endTime": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "price1": {
+          "format": "float",
+          "type": "number"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "landLandId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "landLand": {
+          "$ref": "#/definitions/Land"
+        },
+        "pitches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pitch"
+          }
+        }
+      }
+    },
+    "RequestAccountAdmin": {
+      "required": [
+        "address",
+        "fullName",
+        "password",
+        "phone",
+        "userName"
+      ],
+      "type": "object",
+      "properties": {
+        "userName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "password": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "fullName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "phone": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "address": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "email": {
+          "format": "email",
+          "type": "string"
+        }
+      }
+    },
+    "RequestAccountCustomer": {
+      "required": [
+        "address",
+        "fullName",
+        "password",
+        "phone",
+        "userName"
+      ],
+      "type": "object",
+      "properties": {
+        "userName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "password": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "fullName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "phone": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "address": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "email": {
+          "format": "email",
+          "type": "string"
+        }
+      }
+    },
+    "RequestAccountOwner": {
+      "required": [
+        "address",
+        "fullName",
+        "password",
+        "phone",
+        "userName"
+      ],
+      "type": "object",
+      "properties": {
+        "userName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "password": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "fullName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "phone": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "address": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "email": {
+          "format": "email",
+          "type": "string"
+        }
+      }
+    },
+    "RequestBooking_v3": {
+      "type": "object",
+      "properties": {
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "starTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "price": {
+          "format": "float",
+          "type": "number"
+        }
+      }
+    },
+    "RequestCaculator": {
+      "required": [
+        "endTime",
+        "landId",
+        "size",
+        "starTime"
+      ],
+      "type": "object",
+      "properties": {
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "starTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "RequestFeedback": {
+      "type": "object",
+      "properties": {
+        "rate": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "RequestLand": {
+      "required": [
+        "description",
+        "location",
+        "nameLand",
+        "ownerId",
+        "policy",
+        "title"
+      ],
+      "type": "object",
+      "properties": {
+        "nameLand": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "policy": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "location": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "RequestLogin": {
+      "required": [
+        "password",
+        "userName"
+      ],
+      "type": "object",
+      "properties": {
+        "userName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "password": {
+          "minLength": 1,
+          "type": "string"
+        }
+      }
+    },
+    "RequestPitch": {
+      "required": [
+        "landId",
+        "name",
+        "ownerId",
+        "size"
+      ],
+      "type": "object",
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "RequestPrice": {
+      "required": [
+        "endTime",
+        "landLandId",
+        "price1",
+        "size",
+        "starTime"
+      ],
+      "type": "object",
+      "properties": {
+        "starTime": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "endTime": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "price1": {
+          "format": "float",
+          "type": "number"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "landLandId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "RequestUpdateLand": {
+      "type": "object",
+      "properties": {
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "nameLand": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "policy": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "distance": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "RequestUpdateProfile": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "ResponeBooking_v3": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "landName": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "pitchId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "pitchName": {
+          "type": "string"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "images": {
+          "type": "string"
+        },
+        "bookingId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "totalPrice": {
+          "format": "float",
+          "type": "number"
+        },
+        "dateBooking": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "phoneCustomer": {
+          "type": "string"
+        },
+        "phoneOwner": {
+          "type": "string"
+        },
+        "mailCustomer": {
+          "type": "string"
+        },
+        "mailOwner": {
+          "type": "string"
+        },
+        "scheduleId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "startTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "nameOwner": {
+          "type": "string"
+        }
+      }
+    },
+    "ResponseAccountAdmin": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "adminId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "ResponseAccountCustomer": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "ResponseAccountOwner": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "ResponseAllLandBooking": {
+      "type": "object",
+      "properties": {
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResponseBooking_v2"
+          }
+        }
+      }
+    },
+    "ResponseAllLandBooking_v2": {
+      "type": "object",
+      "properties": {
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "bookingId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "pitchName": {
+          "type": "string"
+        },
+        "totalPrice": {
+          "format": "float",
+          "type": "number"
+        },
+        "location": {
+          "type": "string"
+        },
+        "dateBooking": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "startTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "ResponseBooking": {
+      "type": "object",
+      "properties": {
+        "bookingId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "totalPrice": {
+          "format": "float",
+          "type": "number"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "dateBooking": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResponseSchedule"
+          }
+        }
+      }
+    },
+    "ResponseBooking_v2": {
+      "type": "object",
+      "properties": {
+        "bookingId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "pitchName": {
+          "type": "string"
+        },
+        "totalPrice": {
+          "format": "float",
+          "type": "number"
+        },
+        "location": {
+          "type": "string"
+        },
+        "dateBooking": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "startTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "ResponseFeedback": {
+      "type": "object",
+      "properties": {
+        "feedbackId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "rate": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "namePitch": {
+          "type": "string"
+        },
+        "nameLand": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "customerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "nameCustomer": {
+          "type": "string"
+        }
+      }
+    },
+    "ResponseFile": {
+      "type": "object",
+      "properties": {
+        "pitchImageId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "pitchId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "ResponseLand": {
+      "type": "object",
+      "properties": {
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "nameLand": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "distance": {
+          "type": "string"
+        },
+        "averageRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "minPrice": {
+          "format": "float",
+          "type": "number"
+        },
+        "maxPrice": {
+          "format": "float",
+          "type": "number"
+        },
+        "totalPitch": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "summaryIncome": {
+          "format": "float",
+          "type": "number"
+        },
+        "image": {
+          "type": "string"
+        },
+        "pitchImages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ResponseLand_2": {
+      "type": "object",
+      "properties": {
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "nameLand": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "totalPitch": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "ResponseLogin": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "refreshToken": {
+          "type": "string"
+        },
+        "expiration": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "ResponseManageBooking": {
+      "type": "object",
+      "properties": {
+        "bookingId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "totalPrice": {
+          "format": "float",
+          "type": "number"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "dateBooking": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "startTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "ResponsePitch": {
+      "type": "object",
+      "properties": {
+        "pitchImageId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "pitchId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "nameLand": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "priceMin": {
+          "format": "float",
+          "type": "number"
+        },
+        "priceMax": {
+          "format": "float",
+          "type": "number"
+        },
+        "ownerId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "ResponsePitchV2": {
+      "type": "object",
+      "properties": {
+        "pitchId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "landId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "priceMin": {
+          "format": "float",
+          "type": "number"
+        },
+        "priceMax": {
+          "format": "float",
+          "type": "number"
+        },
+        "schedules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResponseSchedule_v2"
+          }
+        }
+      }
+    },
+    "ResponsePrice": {
+      "type": "object",
+      "properties": {
+        "priceId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "starTime": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "endTime": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "price1": {
+          "format": "float",
+          "type": "number"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "landLandId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "ResponseSchedule": {
+      "type": "object",
+      "properties": {
+        "scheduleId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "starTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "price": {
+          "format": "float",
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "pitchPitchId": {
+          "format": "uuid",
+          "type": "string"
+        }
+      }
+    },
+    "ResponseSchedule_v2": {
+      "type": "object",
+      "properties": {
+        "starTime": {
+          "$ref": "#/definitions/TimeSpan"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "$ref": "#/definitions/TimeSpan"
+        }
+      }
+    },
+    "Schedule": {
+      "type": "object",
+      "properties": {
+        "scheduleId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "starTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "endTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "price": {
+          "format": "float",
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "pitchPitchId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "bookingBookingId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "bookingBooking": {
+          "$ref": "#/definitions/Booking"
+        },
+        "pitchPitch": {
+          "$ref": "#/definitions/Pitch"
+        }
+      }
+    },
+    "TimeSpan": {
+      "type": "object",
+      "properties": {
+        "ticks": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "days": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "hours": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "milliseconds": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "microseconds": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "nanoseconds": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "minutes": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "seconds": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "totalDays": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "totalHours": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "totalMilliseconds": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "totalMicroseconds": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "totalNanoseconds": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "totalMinutes": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        },
+        "totalSeconds": {
+          "format": "double",
+          "type": "number",
+          "readOnly": true
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": { }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
